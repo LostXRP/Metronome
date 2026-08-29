@@ -2,156 +2,370 @@
 
 Metronome
 
-Precision OSRS timing utility for Windows
+Precision OSRS Timing Utility
 
-A modern desktop metronome built for prayer-flick practice, tick timing, and repeatable rhythm training.
+A lightweight desktop metronome built for accurate tick timing, prayer flick practice, and repeatable rhythm training in Old School RuneScape.
+
+<br>
+
+
+
+
+
+
+<br>
+
+Built by LostXRP
 
 </div>
 
 Overview
 
-Metronome is a lightweight desktop utility designed around Old School RuneScape's 0.6-second game tick. The interface provides an accurate audio cue, a visual pulse, quick tick presets, a global start/stop hotkey, and persistent settings in a compact dark UI.
+Metronome is a modern timing utility designed around Old School RuneScape's 0.6 second game tick.
 
-The default 1-tick preset is 100 BPM. Additional presets are included for 2-tick, 3-tick, and 4-tick timing.
+It provides precise audio cues, a visual pulse, adjustable BPM controls, OSRS tick presets, a global hotkey, custom sounds, persistent settings, and a compact overlay mode.
+
+The application runs completely locally and does not interact with the RuneScape client.
 
 Features
 
-Precision beat scheduling using time.perf_counter
+<table>
+<tr>
+<td width="50%" valign="top">
 
-20 to 240 BPM range
+Timing
 
-OSRS tick presets:
+Precision scheduling with time.perf_counter
 
-1 tick: 100 BPM
+Adjustable range from 20 to 240 BPM
 
-2 ticks: 50 BPM
+Fine BPM control
 
-3 ticks: 33.33 BPM
+Instant OSRS tick presets
 
-4 ticks: 25 BPM
+High-resolution beat timing
 
-Global Ctrl + Shift + C start/stop hotkey
+</td>
+<td width="50%" valign="top">
 
-Audio on/off control
+Interface
 
-Visual pulse on/off control
+Modern dark desktop UI
 
-Adjustable volume
-
-Custom audio file support
-
-Always-on-top mode
+Visual beat pulse
 
 Compact overlay mode
 
-Persistent settings
+Always-on-top support
+
+Saved settings between launches
+
+</td>
+</tr>
+
+<tr>
+<td width="50%" valign="top">
+
+Audio
 
 Included default tick sound
 
-Windows executable build script
+Adjustable volume
+
+Audio toggle
+
+Custom WAV, OGG, and MP3 support
+
+Reset to default sound
+
+</td>
+<td width="50%" valign="top">
+
+Controls
+
+Global start and stop hotkey
+
+BPM slider
+
+Manual BPM input
+
+Increment and decrement controls
+
+One-click timing presets
+
+</td>
+</tr>
+</table>
+
+OSRS Tick Presets
+
+Old School RuneScape operates on a 0.6 second game tick.
+
+Timing
+
+BPM
+
+Interval
+
+1 Tick
+
+100 BPM
+
+0.6s
+
+2 Ticks
+
+50 BPM
+
+1.2s
+
+3 Ticks
+
+33.33 BPM
+
+1.8s
+
+4 Ticks
+
+25 BPM
+
+2.4s
+
+The default preset is 100 BPM, matching one OSRS game tick.
 
 Requirements
+
+Before running Metronome, make sure you have:
 
 Windows 10 or Windows 11
 
 Python 3.10 or newer
 
+pip
+
+The dependencies listed in requirements.txt
+
+Check your Python installation:
+
+python --version
+
 Installation
 
-Clone the repository:
+1. Clone the Repository
 
 git clone https://github.com/LostXRP/Metronome.git
 cd Metronome
 
-Install dependencies:
+2. Install Dependencies
 
 python -m pip install -r requirements.txt
 
-Run the application:
+3. Launch Metronome
 
 python Metronome.py
 
-You can also double-click run.bat after installing Python.
+Launch Without Opening a Terminal
+
+A launcher BAT file is intentionally not included in the repository.
+
+If you prefer to launch Metronome by double-clicking a file, you can create your own.
+
+Create a BAT Launcher
+
+Open Notepad
+
+Paste the following:
+
+@echo off
+cd /d "%~dp0"
+python Metronome.py
+pause
+
+Select File > Save As
+
+Change Save as type to All Files
+
+Name the file:
+
+Launch Metronome.bat
+
+Save it in the same directory as Metronome.py
+
+Double-click the BAT file to launch Metronome
+
+Launch Without a Console Window
+
+Use this version instead:
+
+@echo off
+cd /d "%~dp0"
+start "" pythonw Metronome.py
+exit
+
+Python must be installed and available through your system PATH.
 
 Controls
 
 Control
 
-Action
+Function
 
 Ctrl + Shift + C
 
 Start or stop the metronome
 
-+ / -
++
 
-Adjust BPM by one
+Increase BPM
+
+-
+
+Decrease BPM
+
+BPM field
+
+Enter an exact BPM
 
 BPM slider
 
 Fine tempo adjustment
 
-1-4 tick presets
+1 Tick
 
-Jump to common OSRS timing intervals
+Set tempo to 100 BPM
+
+2 Ticks
+
+Set tempo to 50 BPM
+
+3 Ticks
+
+Set tempo to 33.33 BPM
+
+4 Ticks
+
+Set tempo to 25 BPM
 
 Audio
 
-Enable or disable the tick sound
+Enable or disable sound
 
-Visual pulse
+Visual Pulse
 
-Enable or disable the pulse animation
+Enable or disable pulse animation
 
-Always on top
+Always On Top
 
-Keep Metronome above other windows
+Keep the utility above other windows
 
-Compact mode
+Compact Mode
 
-Reduce the interface to the essential controls
+Reduce the interface to essential controls
 
 Custom Sounds
 
-Use Choose in the Sound panel to select a WAV, OGG, or MP3 file supported by Pygame.
+Metronome includes a default tick sound located at:
 
-Use Reset to return to the included default tick.
+assets/tick.wav
+
+You can select your own supported audio file from inside the application.
+
+Supported formats include:
+
+.wav
+.ogg
+.mp3
+
+Select Reset at any time to return to the bundled default sound.
 
 Build a Windows Executable
+
+Metronome includes a build script for packaging the application into a standalone Windows executable.
 
 Run:
 
 build.bat
 
-The packaged executable will be written to:
+The build process installs PyInstaller if required and creates:
 
 dist\Metronome.exe
 
-The build uses PyInstaller and includes the CustomTkinter resources and default tick sound.
+The executable includes the required CustomTkinter resources and bundled tick sound.
 
 Project Structure
 
 Metronome/
+│
 ├── assets/
 │   └── tick.wav
+│
 ├── .gitignore
 ├── build.bat
 ├── LICENSE
 ├── Metronome.py
 ├── README.md
-├── requirements.txt
-└── run.bat
+└── requirements.txt
 
-Notes
+Dependencies
 
-Metronome is a timing and practice utility. It does not interact with the RuneScape client, automate clicks, read game memory, or perform gameplay actions.
+Package
+
+Purpose
+
+customtkinter
+
+Modern desktop interface
+
+pygame
+
+Audio playback
+
+keyboard
+
+Global hotkey support
+
+Install everything with:
+
+python -m pip install -r requirements.txt
+
+Privacy
+
+Metronome runs locally on your computer.
+
+It does not:
+
+Connect to the RuneScape client
+
+Read game memory
+
+Automate mouse clicks
+
+Automate keyboard input
+
+Access your RuneScape account
+
+Send gameplay information anywhere
+
+Require an account or API key
+
+Disclaimer
+
+Metronome is an independent timing and practice utility.
+
+It is not affiliated with, endorsed by, or associated with Jagex Ltd. or Old School RuneScape.
+
+RuneScape and Old School RuneScape are trademarks of Jagex Ltd.
 
 License
 
-Released under the MIT License.
+This project is licensed under the MIT License.
+
+See LICENSE for full license terms.
 
 <div align="center">
 
-Built by LostXRP
+LostXRP
+
+Crypto • Development • Web3
 
 </div>
