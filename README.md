@@ -15,7 +15,7 @@ A lightweight desktop metronome built for accurate tick timing, prayer flick pra
 
 <br>
 
-Built by **LostXRP**
+
 
 </div>
 
